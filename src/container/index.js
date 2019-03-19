@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
 import App from '../components/App'
-import { fetchStarWarsRequest, confirmFetchRequest } from '../actions'
+import { fetchStarWarsRequest, fetchStarWarsPlanetsRequest } from '../actions'
 
 const mapStateToProps = ({starWars}) => ({starWars})
 
 const bindActionsToDispatch = dispatch => (
-    {
-        fetchStarWarsRequest: () => dispatch(fetchStarWarsRequest()),
-        confirmFetchRequest: () => dispatch(confirmFetchRequest())
-    }
+  {
+      fetchStarWarsRequest: () => dispatch(fetchStarWarsRequest()),
+      fetchStarWarsPlanetsRequest: () => dispatch(fetchStarWarsPlanetsRequest())
+  }
 )
 
 const AppContainer = connect(mapStateToProps, bindActionsToDispatch)(App)

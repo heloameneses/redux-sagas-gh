@@ -3,20 +3,6 @@ import React, { Component } from 'react';
 import './App.css'
 
 class App extends Component {
-  state = {
-    open: false
-  }
-
-  handleFetchClick = () => {
-    this.props.fetchStarWarsRequest()
-    this.setState({ open: true })
-  }
-
-  handleConfirmClick = () => {
-    this.props.confirmFetchRequest()
-    this.setState({ open: false })
-  }
-
   render() {
     return (
       <div>
@@ -28,10 +14,15 @@ class App extends Component {
             )
           }
         </div>
-        <div style={!this.state.open ? {display: 'none'} : {}} className="modal">
-          <button onClick={this.handleConfirmClick}>Confirm</button>
+        <div>
+          {
+            this.props.starWars.planets.map(
+              (planet, i) => <h4 key={i}>{planet.name}</h4>
+            )
+          }
         </div>
-        <button onClick={this.handleFetchClick}>Load More</button>
+        <button onClick={this.props.fetchStarWarsRequest}>Load People</button>
+        <button onClick={this.props.fetchStarWarsPlanetsRequest}>Load Planets</button>
       </div>
     );
   }
