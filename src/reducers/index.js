@@ -3,7 +3,7 @@ import * as TYPES from '../types'
 
 const initialState = {
     people: [],
-    planets: []
+    species: []
 }
 
 const handleStarWarsFetchSuccess = (state, action) => {
@@ -13,17 +13,17 @@ const handleStarWarsFetchSuccess = (state, action) => {
     }
 }
 
-const handleStarWarsFetchPlanetsSuccess = (state, action) => {
+const handleStarWarsFetchSpeciesSuccess = (state, action) => {
   return {
     ...state,
-    planets: action.data
+    species: action.data
   }
 }
 
 const starWars = (state = initialState, action) => {
     const handlers = {
         [TYPES.FETCH_STAR_WARS_SUCCESS]: handleStarWarsFetchSuccess,
-        [TYPES.FETCH_STAR_WARS_PLANETS_SUCCESS]: handleStarWarsFetchPlanetsSuccess,
+        [TYPES.FETCH_STAR_WARS_SPECIES_SUCCESS]: handleStarWarsFetchSpeciesSuccess,
     }
     return handlers[action.type]
         ? handlers[action.type](state, action)

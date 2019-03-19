@@ -16,13 +16,13 @@ class App extends Component {
         </div>
         <div>
           {
-            this.props.starWars.planets.map(
+            this.props.starWars.species.map(
               (planet, i) => <h4 key={i}>{planet.name}</h4>
             )
           }
         </div>
         <button onClick={this.props.fetchStarWarsRequest}>Load People</button>
-        <button onClick={this.props.fetchStarWarsPlanetsRequest}>Load Planets</button>
+        <button onClick={this.props.fetchStarWarsSpeciesRequest}>Load Species</button>
       </div>
     );
   }

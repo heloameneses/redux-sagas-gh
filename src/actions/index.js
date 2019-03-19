@@ -7,15 +7,15 @@ export const fetchStarWarsRequest = () => ({
   type: TYPES.FETCH_STAR_WARS_REQUEST
 })
 
-export const fetchStarWarsPlanetsRequest = () => ({
-  type: TYPES.FETCH_STAR_WARS_PLANETS_REQUEST
+export const fetchStarWarsSpeciesRequest = () => ({
+  type: TYPES.FETCH_STAR_WARS_SPECIES_REQUEST
 })
 
-export function* fetchPlanets(action) {
+export function* fetchSpecies(action) {
   try {
-    const planets = yield call(api, 'https://swapi.co/api/planets')
+    const species = yield call(api, 'https://swapi.co/api/species')
 
-    yield put({ type: TYPES.FETCH_STAR_WARS_PLANETS_SUCCESS, data: planets.results })
+    yield put({ type: TYPES.FETCH_STAR_WARS_SPECIES_SUCCESS, data: species.results })
 
   } catch (e) {
     console.error(e)
